@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+  /* 取消文字修飾 */
+}
+
+article,
+section,
+aside,
+address,
+nav,
+header,
+footer,
+img {
+  display: block;
+}
+
+img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+.registerContainer {
+  display: flex;
+}
+.siteMain{
+  max-width: 1200px;
+}
+
+.siteTitleContainer {
+  margin: 150px 120px 40px 120px;
+}
+
+.siteName {
+  font-size: 32px;
+}

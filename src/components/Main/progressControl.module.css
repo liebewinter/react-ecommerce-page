@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+  /* 取消文字修飾 */
+}
+
+article,
+section,
+aside,
+address,
+nav,
+header,
+footer,
+img {
+  display: block;
+}
+
+img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+.processControlContainer {
+  height: 100px;
+  width: 450px;
+}
+
+.buttonGroup {
+  height: 100%;
+  width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 120px;
+  border-top: 1px solid lightgray;
+  
+}
+
+
+button {
+  height: 45px;
+  width: 150px;
+  line-height: 30px;
+  background-color: rgb(252, 128, 169);
+  border:1px solid rgb(252, 128, 169);
+  border-radius: 5px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev {
+  align-items: left;
+}
+
+.next {
+  align-items: left;
+}
+
+

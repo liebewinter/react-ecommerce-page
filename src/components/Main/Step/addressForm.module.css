@@ -1,0 +1,113 @@
+/* 公共樣式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+  /* 取消文字修飾 */
+}
+
+article,
+section,
+aside,
+address,
+nav,
+header,
+footer,
+img {
+  display: block;
+}
+
+img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+.formContainer {
+  height: 300px;
+  width: 450px;
+  margin: 10px 120px 0;
+}
+
+.formTitle {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.formBody {
+  display: gird;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+}
+
+.inputContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  margin-top: 25px;
+}
+
+.title {
+  grid-column: 1/5;
+  margin-right: 2rem;
+}
+
+.name {
+  grid-column: 5/13;
+
+}
+
+.phone {
+  grid-column: 1/7;
+  margin-right: 2rem;
+}
+
+.email {
+  grid-column: 7/13;
+}
+
+.city {
+  grid-column: 1/5;
+  margin-right: 2rem;
+}
+
+.address {
+  grid-column: 5/13;
+}
+
+.inputLabel {
+  font-size: 15px;
+}
+
+.selectContainer {
+  height: 20px;
+}
+
+input {
+  width: 100%;
+  height: 35px;
+  padding: 5px 5px 0;
+  border-radius: 5px;
+  border: 1px solid rgb(106, 106, 106);
+  font-size: 15px;
+}
+
+select {
+  width: 100%;
+  height: 35px;
+  padding: 5px 5px 0;
+  border-radius: 5px;
+  border: 1px solid rgb(106, 106, 106);
+  font-size: 15px;
+}
