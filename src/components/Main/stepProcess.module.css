@@ -32,10 +32,18 @@ li {
   list-style: none;
 }
 
+.siteTitleContainer {
+  width: 450px;
+  margin: 80px 120px 0px 20px;
+}
+.siteName {
+  font-size: 32px;
+}
+
 .progressContainer{
   height: 100px;
   width: 450px;
-  margin: 30px 120px;
+  margin: 10px 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

@@ -32,12 +32,21 @@ li {
   list-style: none;
 }
 
+.mainContainer {
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 900px;
+}
+
+
 .registerContainer {
   display: flex;
+  justify-content: space-between;
+
 }
-.siteMain{
-  max-width: 1200px;
-}
+
+/* .registerBody {
+} */
 
 .siteTitleContainer {
   margin: 150px 120px 40px 120px;

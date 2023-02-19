@@ -12,7 +12,7 @@ function Delivery ({
   deliveryPeriod,
 }) {
   return(
-    <label className={styles.radioGroup} data-price={price}>
+    <label className={styles.radioGroup} dataPrice={price}>
       <input id={deliveryId} type="radio" className={styles.radioInput} name={name}  checked/>
         <div className={styles.radioInfo}>
           <div className={styles.deliverDes}>

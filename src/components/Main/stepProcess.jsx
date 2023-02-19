@@ -10,7 +10,7 @@ function Progress({
 }) {
   return(
        <>
-      <span className={styles.progressGroup} dataPhase={dataPhase}>
+      <span className={styles.progressGroup} data-phase={dataPhase}>
         <span className={styles.progressIcon} >
           <span className={styles.text}><span>{progressOrder}</span></span>
           <PgCompleteIcon />
@@ -22,10 +22,14 @@ function Progress({
   )
 }
 
-export default function SetpProgress() {
+export default function StepProgress() {
   return(
+   <div>
+    <div className={styles.siteTitleContainer}>
+      <h1 className={styles.siteName}>結帳</h1>
+    </div>
     <div className="stepper">
-      <section class={styles.progressContainer}>
+      <section className={styles.progressContainer}>
         <Progress
           progressIsActive='active'
           progressOrder='1'
@@ -49,6 +53,7 @@ export default function SetpProgress() {
         />
       </section>
     </div>
+   </div>
     
   )
 }

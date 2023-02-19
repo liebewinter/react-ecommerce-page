@@ -1,5 +1,5 @@
 import React from 'react';
-import SetpProgress from './Main/stepProcess';
+import StepProgress from './Main/stepProcess';
 import AddressForm from './Main/Step/addressForm';
 import Deliveries from './Main/Step/deliveryForm';
 import PaymentInfo from './Main/Step/paymentForm';
@@ -14,22 +14,21 @@ export default function Main() {
     {/* main */}
     <main className={styles.siteMain}>
       <div className={styles.mainContainer}>
-        <div className={styles.siteTitleContainer}>
-          <h1 className={styles.siteName}>結帳</h1>
-        </div>
-        
         {/* reguster */}
-        
         <section className={styles.registerContainer} data-phase="1" data-total-price="0">
           <div className={styles.registerBody}>
-            <SetpProgress />
-            <AddressForm />
-
-          </div>
+            <StepProgress className={styles.StepProgressCss}/>
+            <AddressForm className={styles.addressFromCss} />
           
-          <Cart />
+            {/* <Deliveries className={styles.deliveriesCss} /> */}
+            {/* <PaymentInfo className={styles.paymentInfoCss} /> */}
+            <ProgressControl className={styles.progressControlCss} /> 
+          </div>
+          <div className={styles.checkout}>
+            <Cart className={styles.cartCss} />
+          </div>
         </section>
-        <ProgressControl />
+        
       </div>
     </main>
     </>

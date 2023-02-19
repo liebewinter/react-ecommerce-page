@@ -32,3 +32,57 @@ img {
 li {
   list-style: none;
 }
+
+.cartContainer {
+  width: 500px;
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  margin: 190px 20px 0;
+  position: relative;
+}
+
+.cartTitle {
+  font-size: 20px;
+  padding: 40px 0 20px 30px;
+}
+
+
+.cartInfoShipping,
+.cartInfoTotal {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.cartInfoShipping {
+  padding: 40px 30px;
+}
+
+.cartInfoTotal {
+  padding: 0px 30px 40px;
+}
+
+.text,
+.price {
+  font-size: 15px;
+}
+.cartInfoShipping::before,
+.cartInfoShipping::after {
+  content: "";
+  position: absolute;
+  background: #ccc;
+  width: 440px;
+  height: 1px;
+}
+
+.cartInfoShipping::before {
+  left: 6%;
+  top: 76%;
+}
+
+.cartInfoShipping::after {
+  left: 6%;
+  top: 87%;
+}
+
+
