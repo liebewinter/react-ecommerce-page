@@ -2,7 +2,7 @@ import React from "react"
 import InputContent from "../inputContent"
 import styles from './paymentForm.module.css'
 
-export default function PaymentInfo () {
+export default function PaymentForm () {
 
   return(
     <div className="stepThree">

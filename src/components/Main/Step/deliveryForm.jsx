@@ -26,7 +26,7 @@ function Delivery ({
   )
 }
 
-export default function Deliveries () {
+export default function DeliveryForm () {
 
   return (
     //shipping phase

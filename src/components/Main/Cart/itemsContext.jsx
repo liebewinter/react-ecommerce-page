@@ -1,8 +1,7 @@
-import react from 'react';
+import { createContext } from 'react';
 
 
-
-export const itemsData =[
+export const initialItemsData =[
   {
     id: '1',
     name: '貓咪罐罐',
@@ -19,3 +18,5 @@ export const itemsData =[
   },
 ]
 
+console.log(initialItemsData)
+export const ItemsContext = createContext(initialItemsData)

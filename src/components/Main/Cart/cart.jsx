@@ -2,38 +2,45 @@ import React from 'react';
 import { useState } from 'react';
 import { ReactComponent as MinusIcon } from '../../../public/icons/minus.svg';
 import { ReactComponent as PlusIcon } from '../../../public/icons/plus.svg';
-import CartItems from './cartItems';
+import { useContext } from 'react';
+import CartItem from './cartItem';
+import { ItemsContext } from './itemsContext';
 import styles from './cart.module.css';
-import { itemsData } from './itemsData';
+
+
 
 
 function Cart () {
-  const itemList = itemsData.map((item) => (
-    <CartItems
-      key = {item.id}
-      id = {item.id}
-      name = {item.name}
-      img = {item.img}
-      price = {item.price}
-      quantity = {item.quantity}
+  
+  const [cartData, setCartData] = useContext(ItemsContext)
+
+  function CalculatedTotalPrice ({cartItems}) {
+    let total = 0
+    cartItems.map((cartItem) => {
+      total += cartItem.price * cartItem.quantity
+      return total
+    })
+  
+  const itemList = cartData.map((itemData) => (
+    <CartItem
+      key = {itemData.id}
+      id = {itemData.id}
+      name = {itemData.name}
+      price = {itemData.price}
+      img = {itemData.img}
+      quantity = {itemData.quantity}
+      cartItems = {cartData}
+      setCartItems = {setCartData}
     />
-   
-    // {/* // cart */}
-  // const currencyFormation = new Intl.NumberFormat (
-  //   'de-DE', 
-  //   { 
-  //     style: 'currency', 
-  //     currency: "EUR", 
-  //   }
-  // ).format(itemList.item.itemPrice);  
+    
   ));
+  console.log(itemList)
     return (
 
     <section className={styles.cartContainer}>
     <h3 className={styles.cartTitle}>購物籃</h3>
       <section className={styles.productList} data-otal-rice="0">
         {itemList}
-      
       </section>
 
       <section className={styles.cartInfoShipping}>
@@ -42,10 +49,11 @@ function Cart () {
       </section>
       <section className={styles.cartInfoTotal}>
         <div className={styles.text}>小計</div>
-        <div className={styles.price}>0</div>
+        <div className={styles.price}><CalculatedTotalPrice cartItems={cartData} /></div>
       </section>
     </section>
   )
+}
 }
 
 export default Cart
