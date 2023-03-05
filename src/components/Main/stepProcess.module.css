@@ -76,7 +76,6 @@ li {
   padding: 5%;
   border-radius: 50%;
   font-size: 25px;
-  
 }
 
 .text > span {
@@ -100,7 +99,7 @@ li {
 /* .address::after,
 .shipping::after
  {
-  content: "";
+  content: ""
   position: absolute;
   top: 50%;
   left: 70px;
@@ -109,14 +108,26 @@ li {
   height: 1.5px; 
 } */
 
+.active {
+  color: #333;
+}
+
+.inactive {
+  color: #ccc;
+}
+
+.done {
+  color: #333;
+}
+
 .progressBar {
   height: 1.5px;
-  width: 65px;
+  width: 60px;
   background-color: #ccc;
 }
 
 .activProgressBar {
   height: 1.5px;
-  width: 65px;
+  width: 60px;
   background-color: #333;
 }

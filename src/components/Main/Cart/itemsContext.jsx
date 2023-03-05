@@ -1,22 +1,27 @@
-import { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
+export const ItemsContext = createContext([])
 
-export const initialItemsData =[
-  {
-    id: '1',
-    name: '貓咪罐罐',
-    img: 'https://picsum.photos/300/300?text=1',
-    price: 100,
-    quantity: 2,
-  },
-  {
-    id: '2',
-    name: '貓咪干干',
-    img: 'https://picsum.photos/300/300?text=2',
-    price: 200,
-    quantity: 1,
-  },
-]
-
-console.log(initialItemsData)
-export const ItemsContext = createContext(initialItemsData)
+export function ItemsProvider({ children }) {
+  const [cartData, setCartData] = useState([
+    {
+      id: '1',
+      name: '貓咪罐罐',
+      img: 'https://picsum.photos/300/300?text=1',
+      price: 100,
+      quantity: 2,
+    },
+    {
+      id: '2',
+      name: '貓咪干干',
+      img: 'https://picsum.photos/300/300?text=2',
+      price: 200,
+      quantity: 1,
+    }
+  ]);
+  return (
+    <ItemsContext.Provider value={[cartData, setCartData]}>
+      {children}
+    </ItemsContext.Provider>
+  );
+}

@@ -1,25 +1,23 @@
-import React from 'react';
-import { useState } from 'react';
-import { ReactComponent as MinusIcon } from '../../../public/icons/minus.svg';
-import { ReactComponent as PlusIcon } from '../../../public/icons/plus.svg';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
+// import { useState } from 'react';
+import styles from './cart.module.css';
 import CartItem from './cartItem';
 import { ItemsContext } from './itemsContext';
-import styles from './cart.module.css';
 
 
-
-
-function Cart () {
+function Cart ({ shippingPrice }) {
   
   const [cartData, setCartData] = useContext(ItemsContext)
 
-  function CalculatedTotalPrice ({cartItems}) {
+  function CalculatedTotalPrice (cartItems) {
     let total = 0
     cartItems.map((cartItem) => {
-      total += cartItem.price * cartItem.quantity
-      return total
+      total += cartItem.price * cartItem.quantity;
     })
+    return total + parseInt(shippingPrice)
+  }
+  
+
   
   const itemList = cartData.map((itemData) => (
     <CartItem
@@ -29,14 +27,13 @@ function Cart () {
       price = {itemData.price}
       img = {itemData.img}
       quantity = {itemData.quantity}
-      cartItems = {cartData}
-      setCartItems = {setCartData}
+      cartItems={cartData}
+      setCartItems={setCartData}
     />
-    
   ));
-  console.log(itemList)
+  
     return (
-
+    
     <section className={styles.cartContainer}>
     <h3 className={styles.cartTitle}>購物籃</h3>
       <section className={styles.productList} data-otal-rice="0">
@@ -45,15 +42,15 @@ function Cart () {
 
       <section className={styles.cartInfoShipping}>
         <div className={styles.text}>運費</div>
-        <div className={styles.price}>免費</div>
+        <div className={styles.price}>{shippingPrice}</div>
       </section>
       <section className={styles.cartInfoTotal}>
         <div className={styles.text}>小計</div>
-        <div className={styles.price}><CalculatedTotalPrice cartItems={cartData} /></div>
+        <div className={styles.price}>{CalculatedTotalPrice(cartData)}</div>
       </section>
     </section>
+
   )
-}
 }
 
 export default Cart

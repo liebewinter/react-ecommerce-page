@@ -1,23 +1,35 @@
 import React from "react";
 import styles from './deliveryForm.module.css'
+import Button from "../../Ref/Button";
+import { ReactComponent as LeftArrowIcon } from '../../../public/icons/left-arrow.svg';
+import { ReactComponent as RightArrowIcon } from '../../../public/icons/right-arrow.svg';
+import { useState } from "react";
 
 
 
 function Delivery ({
   deliveryId,
   name,
-  price,
   deliveryName,
   deliveryPrice,
   deliveryPeriod,
+  onChange,
 }) {
+  const formattedDeliveryPrice = deliveryPrice === "0" ? "免費" : deliveryPrice
+  const deliveryPriceNum = parseInt(deliveryPrice)
   return(
-    <label className={styles.radioGroup} dataPrice={price}>
-      <input id={deliveryId} type="radio" className={styles.radioInput} name={name}  checked/>
+    <label className={styles.radioGroup} data-price={deliveryPrice}>
+      <input 
+      id={deliveryId} 
+      type="radio" 
+      className={styles.radioInput} 
+      name={name} 
+      onChange={() => onChange(deliveryPriceNum)}
+      />
         <div className={styles.radioInfo}>
           <div className={styles.deliverDes}>
             <div className={styles.text}>{deliveryName}</div>
-            <div className={styles.price}>{deliveryPrice}</div>
+            <div className={styles.price}>{formattedDeliveryPrice}</div>
           </div>
           <div className={styles.period}>{deliveryPeriod}</div>
         </div>
@@ -26,8 +38,14 @@ function Delivery ({
   )
 }
 
-export default function DeliveryForm () {
-
+function DeliveryForm ({ onToPrevStep, onToNextStep }) {
+  
+  const [deliveryPrice, setDeliveryPrice] = useState(0)
+  
+  function handleDeliveryPriceChange(deliveryPrice) {
+    setDeliveryPrice(deliveryPrice)
+  }
+  
   return (
     //shipping phase
     <div className="stepTow">
@@ -37,21 +55,33 @@ export default function DeliveryForm () {
           <Delivery 
             deliveryId="shippingStandard"
             name="shipping"
-            price="0"
             deliveryName="標準運送"
-            deliveryPrice="免費"
+            deliveryPrice="0"
             deliveryPeriod="約 3~7 個工作天"
+            onChange={handleDeliveryPriceChange}
         />
           <Delivery 
             deliveryId="shippingDhl"
             name="shipping"
-            price="500"
             deliveryName="DHL 貨運"
             deliveryPrice="500"
             deliveryPeriod="48 小時內送達"
+            onChange={handleDeliveryPriceChange}
           />
         </section>
       </form>
+      <div className={styles.btnGroup}>
+        <Button className="prevProgressBtn" type="button" onClick={onToPrevStep}>
+          <LeftArrowIcon />
+          上一步
+        </Button>
+        <Button className="nextProgressBtn" type="button" onClick={onToNextStep}>
+          下一步
+          <RightArrowIcon />
+        </Button>
+      </div>
     </div>
    )
 }
+
+export default DeliveryForm

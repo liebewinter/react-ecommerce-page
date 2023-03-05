@@ -1,8 +1,11 @@
 import React from "react"
 import InputContent from "../inputContent"
 import styles from './paymentForm.module.css'
+import Button from "../../Ref/Button";
+import { ReactComponent as LeftArrowIcon } from '../../../public/icons/left-arrow.svg';
+// import { ReactComponent as RightArrowIcon } from '../../../public/icons/right-arrow.svg';
 
-export default function PaymentForm () {
+export default function PaymentForm ({ onToPrevStep, onToNextStep }) {
 
   return(
     <div className="stepThree">
@@ -41,6 +44,15 @@ export default function PaymentForm () {
             </div>
           </section>
       </form>
+      <div className={styles.btnGroup}>
+        <Button className="prevProgressBtn" type="button" onClick={onToPrevStep}>
+          <LeftArrowIcon />
+          上一步
+        </Button>
+        <Button className="nextProgressBtn" type="button" onClick={onToNextStep}>
+          確認下單
+        </Button>
+      </div>
     </div>
   )
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './cartItems.module.css';
 import { ReactComponent as MinusIcon } from '../../../public/icons/minus.svg';
 import { ReactComponent as PlusIcon } from '../../../public/icons/plus.svg';
-// import { ItemsContext } from './itemsContext';
 
 
 function CartItem ({
@@ -14,22 +13,22 @@ function CartItem ({
   cartItems, 
   setCartItems
 }) {
-  // const {id, name, price, img, quantity} = itemData  
-  function handleOnClick (id, clickType) {
+  const formattedPrice = new Intl.NumberFormat('en-us').format(price)
+
+  function handleOnClick(id, clickType) {
     let newCartItems = cartItems.map((item) => {
       if (item.id === id) {
         return {
           ...item,
-          quantity:
-          clickType === 'minus' ? item.quantity - 1 : item.quantity +1
-        } 
+          quantity: clickType === "minus" ? item.quantity - 1 : item.quantity + 1,
+      };
       } else {
-        return item
+        return item;
       }
-    })
+    });
+    newCartItems = newCartItems.filter((item) => item.quantity > 0);
     
-    newCartItems = newCartItems.filter((item) => item.quantity > 0)
-    setCartItems(newCartItems)
+    setCartItems(newCartItems);
   }
       
   return (
@@ -39,13 +38,19 @@ function CartItem ({
         <div className={styles.productName}>{name}</div>
         <div className={styles.productControlContainer}>
           <div className={styles.productControl}>
-            <MinusIcon className={styles.button} onClick={handleOnClick(id, 'minus')}/>
+            <MinusIcon
+              className={styles.button}
+              onClick={() => handleOnClick(id, 'minus')}
+            />
             <span className={styles.productQuantity}>{quantity}</span>
-            <PlusIcon className={styles.buttun} onClick={handleOnClick(id, 'plus')}/>
+            <PlusIcon
+              className={styles.buttun}
+              onClick={() => handleOnClick(id, 'plus')}
+            />
           </div>
         </div>
       </div>
-      <div className={styles.price}>${'$' + (price * quantity).toLocaleString()}</div>
+      <div className={styles.price}>`${formattedPrice * quantity.toLocaleString()}</div>
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import InputContent from '../inputContent';
 import styles from './addressForm.module.css'
+import Button from '../../Ref/Button';
+import { ReactComponent as RightArrowIcon } from '../../../public/icons/right-arrow.svg';
 
 function Cities () {
   const cityCodes = ['', 'KLU', 'TPH', 'TPE', 'TYC', 'HSH', 'HSC', 'MAC', 'MAL', 'TXG', 'CWH', 'CWS', 'NTC', 'NTO', 'YLH', 'CHY', 'CYI', 'TNN', 'KHH', 'IUH', 'PTS', 'ILN', 'ILC', 'HWA', 'HWC', 'TTC', 'TTT', 'PEH', 'KMN', 'LNN']
@@ -24,7 +26,7 @@ function Titles () {
 
 
 
-export default function AddressForm() {
+export default function AddressForm({onToNextStep}) {
 
   return(
     <div className="stepOne">
@@ -77,6 +79,12 @@ export default function AddressForm() {
           </div>
         </section>
       </form>
+      <div className={styles.btnGroup}>
+        <Button className="nextProgressBtn" type="button" onClick={onToNextStep}>
+          下一步
+          <RightArrowIcon />
+        </Button>
+      </div>
     </div>
   )
 }

@@ -89,3 +89,11 @@ input {
 
 }
 
+.btnGroup {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 30px 20px 0;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+}

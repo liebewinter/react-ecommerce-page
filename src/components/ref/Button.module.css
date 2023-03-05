@@ -32,29 +32,10 @@ li {
   list-style: none;
 }
 
-.processControlContainer {
-  height: 100px;
-  width: 450px;
-  margin: 30px 20px 0;
-}
-
-.buttonGroup {
-  height: 100%;
-  width: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid lightgray;
-}
-
-
 button {
   height: 45px;
   width: 150px;
   line-height: 30px;
-  background-color: rgb(252, 128, 169);
-  border:1px solid rgb(252, 128, 169);
   border-radius: 5px;
   font-size: 15px;
   color: white;
@@ -65,21 +46,14 @@ button {
   align-items: center;
 }
 
-.pre {
+.nextProgressBtn {
+  background-color: rgb(252, 128, 169);
+  border: 1px solid rgb(252, 128, 169);
+}
+
+.prevProgressBtn {
   align-items: left;
   background-color: white;
   color: #333;
   border: 1px solid white;
-}
-
-.next {
-  align-items: left;
-}
-
-.disabledNext {
-  display: none;
-}
-
-.disabledButton {
-  visibility: hidden;
 }
