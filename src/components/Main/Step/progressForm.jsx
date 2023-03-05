@@ -5,7 +5,7 @@ import PaymentForm from "./paymentForm";
 
 
 
-function ProgressForm ({ onToPrevStep, onToNextStep, stepControl }) {
+function ProgressForm ({ onToPrevStep, onToNextStep, onDeliveryPricChange, stepControl }) {
   const [formData, setFormData] = useState ({
     address: {
       name: '',
@@ -31,6 +31,7 @@ function ProgressForm ({ onToPrevStep, onToNextStep, stepControl }) {
 
   const handleDeliverySumit = (deliveryData) => {
     setFormData({ ...formData, delivery: deliveryData})
+    onDeliveryPricChange(deliveryData.deliveryPrice)
   }
 
   const handlePaymentSubmit = (paymentData) => {

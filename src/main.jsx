@@ -63,12 +63,15 @@ export default function Main() {
             stepControl={currentStep}
             onToPrevStep={handlePrevStepChange}
             onToNextStep={handleNextStepChange}
+            onDeliveryPricChange={setShippingPrice}
             />
           
           </div>
           <div className={styles.checkout}>
             <ItemsContext.Provider value={[cartData, setCartData]}>
-              <Cart className={styles.cartCss} shippingPrice={shippingPrice} />
+              <Cart 
+              className={styles.cartCss} 
+              shippingPrice={shippingPrice} />
             </ItemsContext.Provider>
             
             

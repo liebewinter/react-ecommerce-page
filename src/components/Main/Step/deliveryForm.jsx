@@ -24,7 +24,8 @@ function Delivery ({
       type="radio" 
       className={styles.radioInput} 
       name={name} 
-      onChange={() => onChange(deliveryPriceNum)}
+      value={deliveryPriceNum}
+      onChange={(e) => onChange(parseInt(e.target.value))}
       />
         <div className={styles.radioInfo}>
           <div className={styles.deliverDes}>
@@ -40,7 +41,7 @@ function Delivery ({
 
 function DeliveryForm ({ onToPrevStep, onToNextStep }) {
   
-  const [deliveryPrice, setDeliveryPrice] = useState(0)
+  const [deliveryPrice, setDeliveryPrice] = useState("0")
   
   function handleDeliveryPriceChange(deliveryPrice) {
     setDeliveryPrice(deliveryPrice)

@@ -9,7 +9,7 @@ function Cart ({ shippingPrice }) {
   
   const [cartData, setCartData] = useContext(ItemsContext)
 
-  function CalculatedTotalPrice (cartItems) {
+  function CalculatedTotalPrice (cartItems, shippingPrice) {
     let total = 0
     cartItems.map((cartItem) => {
       total += cartItem.price * cartItem.quantity;
@@ -46,7 +46,7 @@ function Cart ({ shippingPrice }) {
       </section>
       <section className={styles.cartInfoTotal}>
         <div className={styles.text}>小計</div>
-        <div className={styles.price}>{CalculatedTotalPrice(cartData)}</div>
+        <div className={styles.price}>{CalculatedTotalPrice(cartData, shippingPrice)}</div>
       </section>
     </section>
 
