@@ -1,7 +1,7 @@
 import React from 'react';
 import InputContent from '../inputContent';
-import styles from './addressForm.module.css'
-import Button from '../../Ref/Button';
+import styles from './addressForm.module.css';
+import Button from '../../UI/Button';
 import { ReactComponent as RightArrowIcon } from '../../../public/icons/right-arrow.svg';
 
 function Cities () {

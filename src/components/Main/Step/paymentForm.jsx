@@ -1,7 +1,7 @@
 import React from "react"
 import InputContent from "../inputContent"
 import styles from './paymentForm.module.css'
-import Button from "../../Ref/Button";
+import Button from "../../UI/Button";
 import { ReactComponent as LeftArrowIcon } from '../../../public/icons/left-arrow.svg';
 // import { ReactComponent as RightArrowIcon } from '../../../public/icons/right-arrow.svg';
 
