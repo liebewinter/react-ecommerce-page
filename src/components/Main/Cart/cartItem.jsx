@@ -50,7 +50,7 @@ function CartItem ({
           </div>
         </div>
       </div>
-      <div className={styles.price}>`${formattedPrice * quantity.toLocaleString()}</div>
+      <div className={styles.price}>${formattedPrice * quantity.toLocaleString()}</div>
     </div>
   )
 }

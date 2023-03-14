@@ -45,6 +45,7 @@ export default function AddressForm({onToNextStep}) {
                 inputClassName={styles.name}
                 inputLabel="姓名"
                 inputType="text"
+                name="name"
                 placeHolder="請輸入姓名"
               />
           </div>
@@ -54,12 +55,14 @@ export default function AddressForm({onToNextStep}) {
                 inputClassName={styles.phone}
                 inputLabel="電話"
                 inputType="tel"
+                name="telNum"
                 placeHolder="請輸入行動電話"
               />
               <InputContent
                 inputClassName={styles.email}
                 inputLabel="Email"
                 inputType="email"
+                name="email"
                 placeHolder="請輸入電子郵件"
               />
           </div>

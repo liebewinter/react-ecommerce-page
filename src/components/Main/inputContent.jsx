@@ -5,13 +5,19 @@ export default function InputContent ({
   inputClassName,
   inputLabel,
   inputType,
-  placeHolder
+  placeHolder,
+  name,
+  onChange,
 }) {
   return (
     <>
       <div className={inputClassName}>
         <div className={styles.inputLabel}>{inputLabel}</div>
-        <input type={inputType} placeholder={placeHolder} />
+        <input 
+        type={inputType} 
+        placeholder={placeHolder} 
+        name={name}
+        onChange={onChange}/>
       </div>
     </>
   )

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-// import { useState } from 'react';
 import styles from './cart.module.css';
 import CartItem from './cartItem';
 import { ItemsContext } from './itemsContext';
