@@ -18,6 +18,7 @@ export default function PaymentForm ({ onToPrevStep, handlePaymentSubmit }) {
     })
   }
 
+
   return(
     <div className="stepThree">
       <form 
@@ -33,6 +34,7 @@ export default function PaymentForm ({ onToPrevStep, handlePaymentSubmit }) {
                 inputType="text"
                 placeHolder="John Doe"
                 name="cardOwner"
+                // value={formData.payment.cardOwner}
                 onChange={handleChange}
               />
             </div>
@@ -43,6 +45,7 @@ export default function PaymentForm ({ onToPrevStep, handlePaymentSubmit }) {
                 inputType="text"
                 placeHolder="1111 2222 3333 4444"
                 name="cardNumber"
+                // value={formData.payment.cardNumber}
                 onChange={handleChange}
               />
             </div>
@@ -53,6 +56,7 @@ export default function PaymentForm ({ onToPrevStep, handlePaymentSubmit }) {
                 inputType="text"
                 placeHolder="MM/YY"
                 name="cardPeriod"
+                // value={formData.payment.cardPeriod}
                 onChange={handleChange}
               />
               <InputContent
@@ -61,6 +65,7 @@ export default function PaymentForm ({ onToPrevStep, handlePaymentSubmit }) {
                 inputType="text"
                 placeHolder="123"
                 name="cardPin"
+                // value={formData.payemnt.cardPin}
                 onChange={handleChange}
               />
             </div>
@@ -73,7 +78,8 @@ export default function PaymentForm ({ onToPrevStep, handlePaymentSubmit }) {
         </Button>
         <Button 
           className="nextProgressBtn" 
-          type="submit">
+          type="submit"
+          onClick={handlePaymentSubmit}>
           確認下單
         </Button>
       </div>

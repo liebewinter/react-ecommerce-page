@@ -10,23 +10,24 @@ function ProgressForm ({ onToPrevStep, onToNextStep, onDeliveryPriceChange, step
   
   const [formData, setFormData] = useState ({
     address: {
+      title: '',
       name: '',
-      phone: '',
+      tel: '',
       email: '',
-      address: '',
+      city: '',
     },
     delivery: {
       deliveryMethod: '',
-      deliveryPrice: 0,
     },
     payment: {
-      cardholderName: '',
+      cardOwner: '',
       cardNumber: '',
-      expiryDate: '',
-      cvc: '',
+      cardPeriod: '',
+      cardPin: '',
     },
   })
-  
+  // console.log('form', formData)
+  const userInput = useContext(InputContext)
 
   const handleAddressSubmit = (addressData) => {
     setFormData({ ...formData, address: addressData })
@@ -39,10 +40,11 @@ function ProgressForm ({ onToPrevStep, onToNextStep, onDeliveryPriceChange, step
 
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
-    console.log(`Cardholder Name: ${formData.payment.cardholderName}`);
-    console.log(`Card Number: ${formData.payment.cardNumber}`);
-    console.log(`Expiry Date: ${formData.payment.expiryDate}`);
-    console.log(`CVC: ${formData.payment.cvc}`);
+    // 因為userInput是一個array，此處需使用[0]取得正確的資料
+    console.log(`Cardholder Name: ${userInput[0].payment.cardOwner}`);
+    console.log(`Card Number: ${userInput[0].payment.cardNumber}`);
+    console.log(`Expiry Date: ${userInput[0].payment.cardPeriod}`);
+    console.log(`CVC: ${userInput[0].payment.cardPin}`);
   };
 
 

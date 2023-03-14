@@ -7,6 +7,7 @@ export default function InputContent ({
   inputType,
   placeHolder,
   name,
+  // value,
   onChange,
 }) {
   return (
@@ -17,6 +18,7 @@ export default function InputContent ({
         type={inputType} 
         placeholder={placeHolder} 
         name={name}
+        // value={value}
         onChange={onChange}/>
       </div>
     </>
