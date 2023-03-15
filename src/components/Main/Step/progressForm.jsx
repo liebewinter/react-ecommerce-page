@@ -2,11 +2,12 @@ import React, { useState, useContext } from "react";
 import AddressForm from "./addressForm";
 import DeliveryForm from "./deliveryForm";
 import PaymentForm from "./paymentForm";
-import { InputContext } from "./inputContext"
+import { InputContext } from "./inputContext";
+import { ItemsContext } from "../Cart/itemsContext";
+
 
 
 function ProgressForm ({ onToPrevStep, onToNextStep, onDeliveryPriceChange, stepControl }) {
-  
   
   const [formData, setFormData] = useState ({
     address: {
@@ -28,6 +29,8 @@ function ProgressForm ({ onToPrevStep, onToNextStep, onDeliveryPriceChange, step
   })
   // console.log('form', formData)
   const userInput = useContext(InputContext)
+  const price = useContext(ItemsContext)
+
 
   const handleAddressSubmit = (addressData) => {
     setFormData({ ...formData, address: addressData })
@@ -45,6 +48,7 @@ function ProgressForm ({ onToPrevStep, onToNextStep, onDeliveryPriceChange, step
     console.log(`Card Number: ${userInput[0].payment.cardNumber}`);
     console.log(`Expiry Date: ${userInput[0].payment.cardPeriod}`);
     console.log(`CVC: ${userInput[0].payment.cardPin}`);
+    console.log(`Total Price: ${price[2]}`);
   };
 
 

@@ -4,19 +4,22 @@ import CartItem from './cartItem';
 import { ItemsContext } from './itemsContext';
 
 
+
+
 function Cart ({ shippingPrice }) {
   
-  const [cartData, setCartData] = useContext(ItemsContext)
-
+  const [cartData, setCartData, totalPrice, setTotalPrice] = useContext(ItemsContext)
+  
   function CalculatedTotalPrice (cartItems, shippingPrice) {
     let total = 0
     cartItems.map((cartItem) => {
       total += cartItem.price * cartItem.quantity;
     })
-    return total + parseInt(shippingPrice)
-  }
-  
+    const sumedPrice = total + parseInt(shippingPrice)
 
+    setTotalPrice(sumedPrice)
+    return sumedPrice 
+  }
   
   const itemList = cartData.map((itemData) => (
     <CartItem
@@ -28,6 +31,7 @@ function Cart ({ shippingPrice }) {
       quantity = {itemData.quantity}
       cartItems={cartData}
       setCartItems={setCartData}
+      totalPrice={totalPrice}
     />
   ));
   

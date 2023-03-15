@@ -19,8 +19,9 @@ export function ItemsProvider({ children }) {
       quantity: 1,
     }
   ]);
+  const [totalPrice, setTotalPrice] = useState(0);
   return (
-    <ItemsContext.Provider value={[cartData, setCartData]}>
+    <ItemsContext.Provider value={[cartData, setCartData, totalPrice, setTotalPrice]}>
       {children}
     </ItemsContext.Provider>
   );
